@@ -1,7 +1,6 @@
 package com.codetest;
 
-import java.time.LocalDate;
-import java.time.Month;
+import java.util.Scanner;
 
  /** 
   * Main class for simple ceiling fan
@@ -12,19 +11,42 @@ public final class App {
   * Main runner method for simple ceiling fan
   */
  public static void main(String[] args) {
-        final int DAY = 25;
-        ceilingFan fan = new ceilingFan();
-        LocalDate currentDate = LocalDate.now();
-        if (currentDate.getMonth() == Month.DECEMBER) {
-            if (currentDate.getDayOfMonth() == DAY) {
-                System.out.println("The current date is December 25th, the ceiling fan will be off all day today!");
-                fan.speed = Speed.OFF;
+    Scanner scanner = new Scanner(System.in);
+    boolean running = true;
+    int input;
+    ceilingFan fan = new ceilingFan();
+    fan.checkDate();
+    printCommands();
+    while (running) {
+            input = scanner.nextInt();
+            switch (input) {
+                case 0:
+                running = false;
+                    break;
+                case 1:
+                    fan.speedCord.pull();
+                    fan.speedCord.getState();
+                    break;
+                case 2:
+                    fan.dirCord.pull();
+                    fan.dirCord.getState();
+                    break;
+                case 3:
+                    printCommands();
+                    break;
+                default:
+                    System.out.println("Invalid command! Please try again.\n");
+                    printCommands();
+                    break;
             }
-        }
-        
 
-        System.out.println("The current speed is: " + fan.speed);
-        fan.speedCord.pull();
-        System.out.println("The current speed is: " + fan.speed);
+    }
+    scanner.close();
+}
+    /** 
+    * Prints the commands for the user
+    */
+    public static void printCommands() {
+        System.out.println("Commands: \n1 = Pull speed cord\n2 = Pull direction cord\n3 = Command list\n0 = Exit\n");
     }
 }
