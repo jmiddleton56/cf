@@ -15,5 +15,6 @@ public class speedPullCord implements pullCord{
     }
     public void getState() {
         System.out.println("The current speed is: " + fan.speed + "\n");
+        
     }
 }

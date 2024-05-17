@@ -1,18 +1,32 @@
 package com.codetest;
 
-// import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-// import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 /**
- * Unit test for simple App.
+ * Unit tests for simple ceiling fan implementation.
  */
+
 class AppTest {
-    /**
-     * Rigorous Test.
-     */
-    // @Test
-    // void testApp() {
-    //     assertEquals(1, 1);
-    // }
+    private ceilingFan testFan;
+    @BeforeEach
+    void createFan() {
+        testFan = new ceilingFan();
+        testFan.checkDate();
+    }
+
+    @Test
+    void testSpeed() {
+        assertEquals (Speed.OFF, testFan.speed, "Speed should be off");
+        assertEquals (Speed.LOW, testFan.speedCord.pull(), "Speed should be off");
+    }
+
+    @AfterEach
+    void deleteFan() {
+        ceilingFan testFan = null;
+    }
+  
 }
