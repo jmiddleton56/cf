@@ -11,6 +11,7 @@ public class ceilingFan {
     speedPullCord speedCord;
     directionPullCord dirCord;
     boolean dateLocked;
+    LocalDate currentDate;
 
     public ceilingFan() {
         dateLocked = false;
@@ -18,9 +19,9 @@ public class ceilingFan {
         direction = Direction.CLOCKWISE;
         speedCord = new speedPullCord(this);
         dirCord = new directionPullCord(this);
+        currentDate = LocalDate.now();
     }
     public void checkDate() {
-    LocalDate currentDate = LocalDate.now();
         if (currentDate.getMonth() == Month.DECEMBER) {
             if (currentDate.getDayOfMonth() == DAY) {
                 System.out.println("The current date is December 25th, the ceiling fan will be off all day today!");
