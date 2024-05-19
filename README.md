@@ -1,3 +1,5 @@
+App.java is the main runner method. There is also an AppTest.java to test basic cases to ensure edge cases, as well as general cases are behaving as expected.
+
 Solution by Joel Middleton for task below :
 
 In Java, implement a simple ceiling fan which has two pull cords and the following characteristics:
