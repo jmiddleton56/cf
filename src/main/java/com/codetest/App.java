@@ -17,21 +17,28 @@ public final class App {
     ceilingFan fan = new ceilingFan();
     fan.checkDate();
     printCommands();
+    /**
+     * Main input loop for the program, continues running until user inputs 0
+     */
     while (running) {
             input = scanner.nextInt();
             switch (input) {
                 case 0:
+                // Exit the program
                 running = false;
                     break;
                 case 1:
+                // Pull speedCord
                     fan.speedCord.pull();
-                    fan.speedCord.getState();
+                    fan.speedCord.printState();
                     break;
                 case 2:
+                // Pull directionCord
                     fan.dirCord.pull();
-                    fan.dirCord.getState();
+                    fan.dirCord.printState();
                     break;
                 case 3:
+                // Reprint the commands
                     printCommands();
                     break;
                 default:

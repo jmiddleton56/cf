@@ -6,8 +6,8 @@ public class directionPullCord implements pullCord{
         this.fan = fan;
     }
 
-    /** 
-     * @param fan
+    /**
+     * Pull the direction cord to change the direction of the fan
      */
     public void pull() {
         if (fan.dateLocked) {
@@ -17,7 +17,7 @@ public class directionPullCord implements pullCord{
         fan.direction = fan.direction.changeDir();
     }
     }
-    public void getState() {
+    public void printState() {
         System.out.println("The current direction is: " + fan.direction + "\n");
     }
 

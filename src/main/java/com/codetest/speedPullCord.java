@@ -5,6 +5,11 @@ public class speedPullCord implements pullCord{
     public speedPullCord(ceilingFan fan) {
         this.fan = fan;
     }
+
+    /**
+     * Pull the speed cord to change the speed of the 
+     * fan by calling the nextSpeed() function
+     */
     public void pull() {
         if (fan.dateLocked) {
             System.out.println("The date is December 25th and the fan is off all day, the speed cannot be changed!");
@@ -13,7 +18,11 @@ public class speedPullCord implements pullCord{
         fan.speed = fan.speed.nextSpeed();
         }
     }
-    public void getState() {
+
+    /**
+     * Print the current state of the speed of the fan
+     */
+    public void printState() {
         System.out.println("The current speed is: " + fan.speed + "\n");
         
     }
